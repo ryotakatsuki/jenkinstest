@@ -1,5 +1,15 @@
-job('example') {
-  steps {
-    shell('echo Hello World!')
+properties([
+  parameters([
+    string(name: "mybranch", description: "branch to use"),
+  ])
+])
+
+pipeline {
+  stages {
+    stage('build') {
+      steps {
+        sh 'echo Hello World!'
+      }
+    }
   }
 }
